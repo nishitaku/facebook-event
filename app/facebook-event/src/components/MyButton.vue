@@ -12,13 +12,11 @@ export default class MyButton extends Vue {
   @Prop()
   public greet?: string;
 
-  @Emit()
-  public clicked(count: number) {}
-
+  @Emit('clicked')
   public onClick() {
     alert(this.greet);
     this.count++;
-    this.clicked(this.count);
+    return this.count;
   }
 }
 </script>
