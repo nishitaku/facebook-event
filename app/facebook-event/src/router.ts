@@ -27,6 +27,11 @@ export default new Router({
       path: '/count',
       name: 'count',
       component: () => import('./views/Count.vue')
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component: () => import('./views/Form.vue')
     }
   ]
 });
