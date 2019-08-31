@@ -11,22 +11,24 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
+import { counterModule } from '@/store/modules/counter';
+
 @Component
 export default class Count extends Vue {
   public increment() {
-    this.$store.commit('increment');
+    counterModule.increment();
   }
 
   public decrement() {
-    this.$store.commit('decrement');
+    counterModule.decrement();
   }
 
   public incrementAsync() {
-    this.$store.dispatch('incrementAsync');
+    counterModule.incrementAsync();
   }
 
   public get showCounter() {
-    return this.$store.getters.countWithSuffix;
+    return counterModule.countWithSuffix;
   }
 }
 </script>
