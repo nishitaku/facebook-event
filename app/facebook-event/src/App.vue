@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header></Header>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -31,3 +32,16 @@
   }
 }
 </style>
+
+<script lang="ts">
+import { Component, Vue, Watch } from 'vue-property-decorator';
+
+import Header from '@/components/Header.vue';
+
+@Component({
+  components: {
+    Header
+  }
+})
+export default class Home extends Vue {}
+</script>
