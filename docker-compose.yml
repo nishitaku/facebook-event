@@ -4,8 +4,9 @@ services:
   node:
     build: .
     ports:
-      - "9000:9000"
-      - "8000:8000"
+      - "9000:9000"  # vue serve
+      - "8000:8000"  # vue gui
+      - "4321:4321"  # mockサーバー
     volumes:
       - ./app:/app:cached
     tty: true

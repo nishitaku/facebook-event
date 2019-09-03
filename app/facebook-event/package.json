@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint --no-fix",
-    "lint:fix": "vue-cli-service lint"
+    "lint:fix": "vue-cli-service lint",
+    "mock": "node src/mock/mock.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -29,6 +30,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-simple-import-sort": "^4.0.0",
     "eslint-plugin-vue": "^5.0.0",
+    "mocky": "^0.1.11",
     "prettier": "^1.18.2",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
