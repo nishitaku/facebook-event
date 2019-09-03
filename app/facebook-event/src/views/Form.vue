@@ -1,11 +1,7 @@
 <template>
   <div class="scene">
     <p class="name">NICKNAME: {{ nickname }}</p>
-    <input
-      class="input"
-      v-model="nickname"
-      placeholder="NICKNAMEを入力してください"
-    />
+    <input class="input" placeholder="NICKNAMEを入力してください" />
     <router-link to="/count" class="button">START</router-link>
   </div>
 </template>
@@ -40,8 +36,16 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
+import { nicknameModule } from '@/store/modules/nickname';
+
 @Component
 export default class Count extends Vue {
-  nickname = '';
+  async created() {
+    nicknameModule.getNickname();
+  }
+
+  get nickname() {
+    return nicknameModule.nicknameRowStr;
+  }
 }
 </script>

@@ -11,9 +11,9 @@ mocky
         status: 200,
         headers: {
           'Content-type': 'text/html',
-          'Access-Control-Allow-Origin': 'http://localhost:8080'
+          'Access-Control-Allow-Origin': 'http://localhost:9000'
         },
-        body: JSON.stringify({ nickname: '' })
+        body: JSON.stringify({ nickname: 'delpiero' })
       }
     },
     {
@@ -27,9 +27,9 @@ mocky
             status: 200,
             headers: {
               'Content-type': 'text/html',
-              'Access-Control-Allow-Origin': 'http://localhost:8080'
+              'Access-Control-Allow-Origin': 'http://localhost:9000'
             },
-            body: JSON.stringify({ nickname: '' })
+            body: JSON.stringify({ nickname: 'delpiero' })
           });
         }, 1000);
       }
@@ -44,7 +44,7 @@ mocky
         status: 200,
         headers: {
           'Content-type': 'text/html',
-          'Access-Control-Allow-Origin': 'http://localhost:8080'
+          'Access-Control-Allow-Origin': 'http://localhost:9000'
         },
         body: JSON.stringify({ status: 'ok' })
       }
@@ -59,7 +59,7 @@ mocky
         status: 200,
         headers: {
           'Content-type': 'text/html',
-          'Access-Control-Allow-Origin': 'http://localhost:8080'
+          'Access-Control-Allow-Origin': 'http://localhost:9000'
         },
         body: JSON.stringify({ status: 'ok' })
       }
@@ -74,7 +74,7 @@ mocky
         status: 200,
         headers: {
           'Content-type': 'text/html',
-          'Access-Control-Allow-Origin': 'http://localhost:8080'
+          'Access-Control-Allow-Origin': 'http://localhost:9000'
         },
         body: JSON.stringify({ status: 'ok' })
       }
