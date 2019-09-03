@@ -1,5 +1,8 @@
 <template>
   <div class="scene">
+    <div v-show="isLoading">
+      Loading...
+    </div>
     <p class="name">NICKNAME: {{ nickname }}</p>
     <input class="input" placeholder="NICKNAMEを入力してください" />
     <router-link to="/count" class="button">START</router-link>
@@ -36,6 +39,7 @@
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
+import { StatusConfig } from '@/config/Status';
 import { nicknameModule } from '@/store/modules/nickname';
 
 @Component
@@ -45,7 +49,11 @@ export default class Count extends Vue {
   }
 
   get nickname() {
-    return nicknameModule.nicknameRowStr;
+    return nicknameModule.getNicknameRowStr;
+  }
+
+  get isLoading() {
+    return nicknameModule.getStatus === StatusConfig.LOADING;
   }
 }
 </script>
