@@ -15,7 +15,7 @@ export interface INicknameState {
   nickname: string;
 }
 
-@Module({ dynamic: true, store, name: 'counter', namespaced: true })
+@Module({ dynamic: true, store, name: 'nickname', namespaced: true })
 class Nickname extends VuexModule implements INicknameState {
   // state
   status = StatusConfig.INITIALIZED;

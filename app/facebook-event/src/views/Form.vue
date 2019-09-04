@@ -4,8 +4,18 @@
       Loading...
     </div>
     <p class="name">NICKNAME: {{ nickname }}</p>
-    <input class="input" placeholder="NICKNAMEを入力してください" />
-    <router-link to="/count" class="button">START</router-link>
+    <input
+      class="input"
+      v-model="zipCode"
+      placeholder="郵便番号を入力してください"
+    />
+    <button class="button is-primary" @click="onClickGetAddress">
+      住所取得
+    </button>
+    <div>
+      <label>住所：</label>
+      {{ address }}
+    </div>
   </div>
 </template>
 
@@ -41,11 +51,18 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 import { StatusConfig } from '@/config/Status';
 import { nicknameModule } from '@/store/modules/nickname';
+import { zipAddressModule } from '@/store/modules/zipAddress';
 
 @Component
 export default class Count extends Vue {
+  zipCode = '';
+
   async created() {
     nicknameModule.getNickname();
+  }
+
+  public onClickGetAddress() {
+    zipAddressModule.getAddressByZipCode(this.zipCode);
   }
 
   get nickname() {
@@ -54,6 +71,10 @@ export default class Count extends Vue {
 
   get isLoading() {
     return nicknameModule.getStatus === StatusConfig.LOADING;
+  }
+
+  get address() {
+    return zipAddressModule.getAddress;
   }
 }
 </script>
