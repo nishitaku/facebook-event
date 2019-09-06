@@ -1,5 +1,5 @@
 <template>
-  <button class="primary" @click="onClick"><slot></slot></button>
+  <b-button type="is-primary" @click="onClick"><slot></slot></b-button>
 </template>
 
 <script lang="ts">

@@ -1,3 +1,6 @@
+import 'buefy/dist/buefy.css';
+
+import Buefy from 'buefy';
 import firebase from 'firebase';
 import Vue from 'vue';
 
@@ -5,6 +8,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store/store';
 
+Vue.use(Buefy);
 Vue.config.productionTip = false;
 
 const firebaseConfig = {
