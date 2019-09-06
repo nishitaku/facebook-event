@@ -1,7 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import About from './views/About.vue';
+import Count from './views/Count.vue';
+import Form from './views/Form.vue';
 import Home from './views/Home.vue';
+import SignIn from './views/SignIn.vue';
+import SignUp from './views/SignUp.vue';
 
 Vue.use(Router);
 
@@ -20,18 +25,27 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: About
     },
     {
       path: '/count',
       name: 'count',
-      component: () => import('./views/Count.vue')
+      component: Count
     },
     {
       path: '/form',
       name: 'form',
-      component: () => import('./views/Form.vue')
+      component: Form
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: SignIn
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignUp
     }
   ]
 });
