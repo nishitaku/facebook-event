@@ -4,11 +4,7 @@
       <div class="column is-one-third is-offset-one-third">
         <div class="card">
           <div class="card-content">
-            <b-field
-              label="Usename"
-              type="is-success"
-              message="This username is available"
-            >
+            <b-field label="Username">
               <b-input
                 placeholder="Username"
                 maxlength="30"
@@ -26,7 +22,7 @@
             </b-field>
           </div>
           <footer class="card-footer">
-            <a class="card-footer-item">Sign In</a>
+            <a class="card-footer-item" @click="signIn">Sign In</a>
           </footer>
         </div>
       </div>
@@ -38,12 +34,28 @@
 </template>
 
 <script lang="ts">
+import firebase from 'firebase';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SignIn extends Vue {
   usename = '';
   password = '';
+
+  public signIn() {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.usename, this.password)
+      .then(
+        response => {
+          alert('Login Success !');
+          this.$router.push('/');
+        },
+        err => {
+          alert(err.message);
+        }
+      );
+  }
 }
 </script>
 
