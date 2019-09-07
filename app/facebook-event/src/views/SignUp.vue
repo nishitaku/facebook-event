@@ -31,7 +31,9 @@
         </div>
       </div>
     </div>
-    <router-link to="/signin">サインイン</router-link>
+    <div class="signin">
+      <router-link to="/signin">サインイン</router-link>
+    </div>
   </div>
 </template>
 
@@ -46,7 +48,7 @@ export default class SignUp extends Vue {
 </script>
 
 <style lang="scss" scoped>
-div.section {
+.signin {
   text-align: center;
 }
 </style>
