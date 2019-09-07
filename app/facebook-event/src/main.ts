@@ -14,7 +14,10 @@ import store from './store/store';
 library.add(fas);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.use(Buefy, {});
+Vue.use(Buefy, {
+  defaultIconComponent: FontAwesomeIcon,
+  defaultIconPack: 'fas'
+});
 
 Vue.config.productionTip = false;
 

@@ -49,7 +49,7 @@ export default class SignUp extends Vue {
       .auth()
       .createUserWithEmailAndPassword(this.usename, this.password)
       .then(response => {
-        alert(`Created Account: ${response.user.email}`);
+        // alert(`Created Account: ${response.user.email}`);
       })
       .catch(error => {
         alert(error.message);
