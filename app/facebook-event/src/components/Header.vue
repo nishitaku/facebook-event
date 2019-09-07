@@ -32,6 +32,7 @@
           <router-link to="/signin" class="button is-light">
             Sign in
           </router-link>
+          <button class="button is-danger" @click="signOut">Sign Out</button>
         </div>
       </b-navbar-item>
     </template>
@@ -39,8 +40,18 @@
 </template>
 
 <script lang="ts">
+import firebase from 'firebase';
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Header extends Vue {}
+export default class Header extends Vue {
+  public signOut() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.$router.push('signin');
+      });
+  }
+}
 </script>

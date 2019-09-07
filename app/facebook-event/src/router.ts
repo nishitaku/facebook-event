@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import Vue from 'vue';
 import Router from 'vue-router';
 
@@ -11,7 +12,7 @@ import SignUp from './views/SignUp.vue';
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -29,6 +30,7 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main,
+      meta: { requiresAuth: true },
       children: [
         {
           path: '/',
@@ -57,3 +59,25 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth) {
+    // このルートはログインされているかどうか認証が必要です。
+    // もしされていないならば、ログインページにリダイレクトします。
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        next();
+      } else {
+        next({
+          path: 'signin',
+          query: { redirect: to.fullPath }
+        });
+      }
+    });
+  } else {
+    next();
+  }
+});
+
+export default router;
