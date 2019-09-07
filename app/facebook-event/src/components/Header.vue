@@ -9,20 +9,18 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item href="#">
-        Home
+      <b-navbar-item>
+        <router-link to="/">Home</router-link>
       </b-navbar-item>
-      <b-navbar-item href="#">
-        Documentation
+      <b-navbar-item>
+        <router-link to="/about">About</router-link>
       </b-navbar-item>
-      <b-navbar-dropdown label="Info">
-        <b-navbar-item href="#">
-          About
-        </b-navbar-item>
-        <b-navbar-item href="#">
-          Contact
-        </b-navbar-item>
-      </b-navbar-dropdown>
+      <b-navbar-item>
+        <router-link to="/count">Count</router-link>
+      </b-navbar-item>
+      <b-navbar-item>
+        <router-link to="/form">Form</router-link>
+      </b-navbar-item>
     </template>
 
     <template slot="end">

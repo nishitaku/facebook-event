@@ -45,4 +45,8 @@ export default class SignUp extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div.section {
+  text-align: center;
+}
+</style>
